@@ -1,0 +1,14 @@
+
+type Query {
+    helloWorld: String!
+}
+
+type Post {
+    id: ID!
+    title: String!
+}
+
+type Comment {
+    id: ID!
+    text: String!
+}
