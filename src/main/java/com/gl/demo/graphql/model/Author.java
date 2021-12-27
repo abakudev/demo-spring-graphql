@@ -25,9 +25,9 @@ import java.util.UUID;
 public class Author {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @Type(type = "uuid-char")
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    @Column(name = "ID", unique = true, nullable = false)
     private UUID id;
 
     @Column(name = "NAME")

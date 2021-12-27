@@ -11,6 +11,5 @@ import java.util.UUID;
 public interface PostRepository extends JpaRepository<Post, UUID> {
 
     List<Post> findAllByAuthorId(UUID authorId);
-    List<Post> findAllByAuthor_Id(UUID authorId);
 
 }

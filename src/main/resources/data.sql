@@ -1,8 +1,8 @@
 
-insert into AUTHORS(ID, NAME, email) values('b8addf5e-43f8-4165-9a5f-ab73094a5b1e', 'Peter', 'peteer@gmail.com');
-insert into AUTHORS(ID, NAME, email) values('bffc75ba-c8e0-4178-93c9-20eb6cafed75', 'Smith', 'smith@gmail.com');
-insert into AUTHORS(ID, NAME, email) values('44b0ed8f-351c-4368-a472-cadd17444947', 'John', 'john@gmail.com');
-insert into AUTHORS(ID, NAME, email) values('023946ee-6173-4d49-8bac-c0b9e4a7ba88', 'Shane', 'shane@gmail.com');
+insert into AUTHORS(ID, NAME, EMAIL) values('b8addf5e-43f8-4165-9a5f-ab73094a5b1e', 'Peter', 'peteer@gmail.com');
+insert into AUTHORS(ID, NAME, EMAIL) values('bffc75ba-c8e0-4178-93c9-20eb6cafed75', 'Smith', 'smith@gmail.com');
+insert into AUTHORS(ID, NAME, EMAIL) values('44b0ed8f-351c-4368-a472-cadd17444947', 'John', 'john@gmail.com');
+insert into AUTHORS(ID, NAME, EMAIL) values('023946ee-6173-4d49-8bac-c0b9e4a7ba88', 'Shane', 'shane@gmail.com');
 
 
 insert into POSTS(ID, TITLE, DESCRIPTION, CATEGORY, AUTHOR_ID) values('8144f608-3e87-47ea-ad16-677d5679b445', 'post title','post text', 'Adventure', 'b8addf5e-43f8-4165-9a5f-ab73094a5b1e');

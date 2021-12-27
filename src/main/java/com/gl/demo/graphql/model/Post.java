@@ -26,8 +26,9 @@ import java.util.UUID;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @Type(type = "uuid-char")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    @Column(name = "ID", unique = true, nullable = false)
     private UUID id;
 
     @Column(name = "TITLE")

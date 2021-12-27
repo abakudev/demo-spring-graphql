@@ -1,6 +1,7 @@
 package com.gl.demo.graphql.service.impl;
 
 import com.gl.demo.graphql.dto.PostDTO;
+import com.gl.demo.graphql.exception.ResourceNotFound;
 import com.gl.demo.graphql.model.Author;
 import com.gl.demo.graphql.model.Post;
 import com.gl.demo.graphql.repository.AuthorRepository;
@@ -32,7 +33,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDTO> getPostsByAuthorId(UUID authorId) {
 
-        List<Post> posts = this.postRepository.findAllByAuthor_Id(authorId);
+        List<Post> posts = this.postRepository.findAllByAuthorId(authorId);
 
         return posts.stream().map(
                 post -> PostDTO.builder()
@@ -67,7 +68,7 @@ public class PostServiceImpl implements PostService {
         Optional<Author> author = this.authorRepository.findById(post.getAuthorId());
 
         if(author.isEmpty()){
-            throw new RuntimeException("Auhtor is not exist!");
+            throw new ResourceNotFound("Auhtor is not exist!");
         }
 
         Post newPost = Post.builder()
