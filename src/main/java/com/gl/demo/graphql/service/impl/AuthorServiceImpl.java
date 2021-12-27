@@ -44,4 +44,15 @@ public class AuthorServiceImpl implements AuthorService {
                 .build()).orElse(null);
     }
 
+    @Override
+    public UUID createAuthor(AuthorDTO author) {
+        Author newAuthor = Author.builder()
+                .name(author.getName())
+                .email(author.getEmail())
+                .build();
+
+        Author authorCreated = this.authorRepository.saveAndFlush(newAuthor);
+        return authorCreated.getId();
+    }
+
 }

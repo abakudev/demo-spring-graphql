@@ -8,4 +8,5 @@ import java.util.UUID;
 public interface AuthorService {
     List<AuthorDTO> getAuthors();
     AuthorDTO getAuthorById(UUID authorId);
+    UUID createAuthor(AuthorDTO author);
 }
