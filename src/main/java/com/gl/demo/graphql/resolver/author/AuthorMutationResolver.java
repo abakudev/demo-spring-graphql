@@ -1,4 +1,4 @@
-package com.gl.demo.graphql.resolver;
+package com.gl.demo.graphql.resolver.author;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.gl.demo.graphql.dto.AuthorDTO;
