@@ -5,11 +5,19 @@ type Query {
 
 type Mutation {
     createAuthor(author: AuthorInput): ID!
+    createPost(post: PostInput): ID!
 }
 
 input AuthorInput {
     name: String!
     email:String!
+}
+
+input PostInput {
+        title: String!
+        description: String!
+        category: String!
+        authorId: ID!
 }
 
 type Author {
