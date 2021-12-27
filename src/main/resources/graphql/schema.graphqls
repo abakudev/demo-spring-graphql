@@ -1,6 +1,6 @@
-
 type Query {
     authors: [Author]!
+    recentPosts(count:Int!, offset: Int!): [Post]
 }
 
 type Author {
@@ -16,9 +16,4 @@ type Post {
     description: String!
     category: String!
     author: Author!
-}
-
-type Comment {
-    id: ID!
-    text: String!
 }

@@ -5,6 +5,9 @@ import com.gl.demo.graphql.model.Post;
 import com.gl.demo.graphql.repository.PostRepository;
 import com.gl.demo.graphql.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +34,23 @@ public class PostServiceImpl implements PostService {
                 post -> PostDTO.builder()
                         .id(post.getId())
                         .authorId(authorId)
+                        .title(post.getTitle())
+                        .description(post.getDescription())
+                        .category(post.getCategory())
+                        .build()
+        ).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PostDTO> getRecentPosts(int count, int offset) {
+        Pageable pageable = PageRequest.of(offset, count);
+
+        Page<Post> all = this.postRepository.findAll(pageable);
+
+        return all.stream().map(
+                post -> PostDTO.builder()
+                        .id(post.getId())
+                        .authorId(post.getAuthor().getId())
                         .title(post.getTitle())
                         .description(post.getDescription())
                         .category(post.getCategory())
