@@ -11,7 +11,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthorDTO {
+public class AuthorDto {
     private UUID id;
     private String name;
     private String email;

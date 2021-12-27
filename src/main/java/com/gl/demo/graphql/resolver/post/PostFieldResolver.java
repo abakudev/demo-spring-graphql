@@ -1,7 +1,7 @@
-package com.gl.demo.graphql.resolver;
+package com.gl.demo.graphql.resolver.post;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
-import com.gl.demo.graphql.dto.AuthorDTO;
+import com.gl.demo.graphql.dto.AuthorDto;
 import com.gl.demo.graphql.dto.PostDTO;
 import com.gl.demo.graphql.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class PostFieldResolver implements GraphQLResolver<PostDTO> {
         this.authorService = authorService;
     }
 
-    public AuthorDTO getAuthor(PostDTO post) {
+    public AuthorDto getAuthor(PostDTO post) {
         return this.authorService.getAuthorById(post.getAuthorId());
     }
 

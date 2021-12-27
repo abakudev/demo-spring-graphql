@@ -1,7 +1,7 @@
-package com.gl.demo.graphql.resolver;
+package com.gl.demo.graphql.resolver.author;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.gl.demo.graphql.dto.AuthorDTO;
+import com.gl.demo.graphql.dto.AuthorDto;
 import com.gl.demo.graphql.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ public class AuthorQueryResolver implements GraphQLQueryResolver {
         this.authorService = authorService;
     }
 
-    public List<AuthorDTO> getAuthors(){
+    public List<AuthorDto> getAuthors(){
         return this.authorService.getAuthors();
     }
 

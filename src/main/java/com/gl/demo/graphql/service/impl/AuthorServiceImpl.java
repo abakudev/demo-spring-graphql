@@ -1,6 +1,6 @@
 package com.gl.demo.graphql.service.impl;
 
-import com.gl.demo.graphql.dto.AuthorDTO;
+import com.gl.demo.graphql.dto.AuthorDto;
 import com.gl.demo.graphql.model.Author;
 import com.gl.demo.graphql.repository.AuthorRepository;
 import com.gl.demo.graphql.service.AuthorService;
@@ -23,10 +23,10 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<AuthorDTO> getAuthors() {
+    public List<AuthorDto> getAuthors() {
         List<Author> authors = this.authorRepository.findAll();
         return authors.stream().map(
-                author -> AuthorDTO.builder()
+                author -> AuthorDto.builder()
                         .id(author.getId())
                         .name(author.getName())
                         .email(author.getEmail())
@@ -35,13 +35,24 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorDTO getAuthorById(UUID authorId){
+    public AuthorDto getAuthorById(UUID authorId){
         Optional<Author> author = this.authorRepository.findById(authorId);
-        return author.map(value -> AuthorDTO.builder()
+        return author.map(value -> AuthorDto.builder()
                 .id(authorId)
                 .name(value.getName())
                 .email(value.getEmail())
                 .build()).orElse(null);
+    }
+
+    @Override
+    public UUID createAuthor(AuthorDto author) {
+        Author newAuthor = Author.builder()
+                .name(author.getName())
+                .email(author.getEmail())
+                .build();
+
+        Author authorCreated = this.authorRepository.saveAndFlush(newAuthor);
+        return authorCreated.getId();
     }
 
 }

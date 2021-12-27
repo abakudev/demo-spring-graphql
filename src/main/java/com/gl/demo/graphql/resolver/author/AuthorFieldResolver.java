@@ -1,7 +1,7 @@
-package com.gl.demo.graphql.resolver;
+package com.gl.demo.graphql.resolver.author;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
-import com.gl.demo.graphql.dto.AuthorDTO;
+import com.gl.demo.graphql.dto.AuthorDto;
 import com.gl.demo.graphql.dto.PostDTO;
 import com.gl.demo.graphql.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class AuthorFieldResolver implements GraphQLResolver<AuthorDTO> {
+public class AuthorFieldResolver implements GraphQLResolver<AuthorDto> {
 
     private final PostService postService;
 
@@ -19,7 +19,7 @@ public class AuthorFieldResolver implements GraphQLResolver<AuthorDTO> {
         this.postService = postService;
     }
 
-    public List<PostDTO> posts(AuthorDTO author) {
+    public List<PostDTO> posts(AuthorDto author) {
         return this.postService.getPostsByAuthorId(author.getId());
     }
 
