@@ -18,17 +18,21 @@
 
     <properties>
         <java.version>11</java.version>
+        <graphql.version>11.1.0</graphql.version>
         <!-- JaCoCo Properties -->
         <jacoco.version>0.8.7</jacoco.version>
         <!-- Sonar Properties -->
         <sonar.coverage.exclusions>
             **/dto/**,
-            **/models/**,
+            **/model/**,
             **/repository/**
         </sonar.coverage.exclusions>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.host.url>http://localhost:32769</sonar.host.url>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin1</sonar.password>
     </properties>
 
     <dependencies>
@@ -62,27 +66,28 @@
 
         <!-- GraphQL -->
         <dependency>
-            <groupId>com.graphql-java</groupId>
+            <groupId>com.graphql-java-kickstart</groupId>
             <artifactId>graphql-spring-boot-starter</artifactId>
-            <version>5.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphql-java-tools</artifactId>
-            <version>5.2.4</version>
+            <version>${graphql.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.graphql-java</groupId>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>playground-spring-boot-starter</artifactId>
+            <version>${graphql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
             <artifactId>graphiql-spring-boot-starter</artifactId>
-            <version>5.0.2</version>
+            <version>${graphql.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.graphql-java</groupId>
+            <groupId>com.graphql-java-kickstart</groupId>
             <artifactId>voyager-spring-boot-starter</artifactId>
-            <version>5.0.2</version>
+            <version>${graphql.version}</version>
         </dependency>
 
+        <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -94,10 +99,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>${jacoco.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphql-spring-boot-starter-test</artifactId>
+            <version>12.0.0</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -123,8 +136,7 @@
                 <configuration>
                     <excludes>
                         <exclude>**/dto/**</exclude>
-                        <exclude>**/error/**</exclude>
-                        <exclude>**/models/*</exclude>
+                        <exclude>**/model/*</exclude>
                         <exclude> **/repository/**</exclude>
                     </excludes>
                 </configuration>

@@ -1,8 +1,8 @@
 package com.gl.demo.graphql.resolver.author;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.gl.demo.graphql.dto.AuthorDTO;
 import com.gl.demo.graphql.service.AuthorService;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
