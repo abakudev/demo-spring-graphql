@@ -1,4 +1,4 @@
-package com.gl.demo.graphql.resolver.author;
+package com.gl.demo.graphql.resolver.post;
 
 import com.gl.demo.graphql.TestApplication;
 import com.gl.demo.graphql.utils.FileReaderUtil;
@@ -15,21 +15,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = TestApplication.class)
-class AuthorQueryResolverIntTest {
+class PostQueryResolverIntTest {
 
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
 
     @Test
-    void shouldAbleToGetAuthorData() throws IOException, JSONException {
+    void shouldAbleToGetRecentPostData() throws IOException, JSONException {
 
         GraphQLResponse graphQLResponse = this.graphQLTestTemplate
-                .postForResource("request/author-query.graphqls");
+                .postForResource("request/recent-post-query.graphqls");
         assertTrue(graphQLResponse.isOk());
-        assertEquals(FileReaderUtil.read("response/author-query.json"),
+        assertEquals(FileReaderUtil.read("response/recent-post-query.json"),
                 graphQLResponse.getRawResponse().getBody(), true);
     }
-
-
 
 }
