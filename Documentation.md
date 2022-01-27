@@ -28,7 +28,7 @@ Let’s have a look at GraphQL’s basic terminology.
 
 #### 
 
-### Project Setup
+### **Setting up the Service**
 
 ##### Requirements
 
@@ -115,7 +115,54 @@ dependencies {
 </dependency>
 ```
 
-#### Writing the Schema
+#### 
+
+#### **GraphQL Schemas**
+
+The GraphQL server exposes a schema describing the API. This scheme is made up of type definitions. Each type has one or more fields, which each take zero or more arguments and return a specific type.
+
+The graph is made up from the way these fields are nested with each other. Note that there is no need for the graph to be acyclic – cycles are perfectly acceptable – but it is directed. That is, the client can get from one field to its children, but it can't automatically get back to the parent unless the schema defines this explicitly.
+
+An example GraphQL Schema for a blog may contain the following definitions, describing a Post, an Author of the post and a root query to get the most recent posts on the blog.
+
+```
+type Post {
+    id: ID!
+    title: String!
+    text: String!
+    category: String
+    author: Author!
+}
+
+type Author {
+    id: ID!
+    name: String!
+    thumbnail: String
+    posts: [Post]!
+}
+
+# The Root Query for the application
+type Query {
+    recentPosts(count: Int, offset: Int): [Post]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    writePost(title: String!, text: String!, category: String) : Post!
+}
+```
+
+The “!” at the end of some names indicates that this is a non-nullable type. Any type that does not have this can be null in the response from the server. The GraphQL service handles these correctly, allowing us to request child fields of nullable types safely.
+
+The GraphQL Service also exposes the schema itself using a standard set of fields, allowing any client to query for the schema definition ahead of time.
+
+This can allow for the client to automatically detect when the schema changes, and to allow for clients that dynamically adapt to the way that the schema works. One incredibly useful example of this is the GraphiQL tool – discussed later – that allows for us to interact with any GraphQL API.
+
+#### **Writing the Schema**
+
+The GraphQL Tools library works by processing GraphQL Schema files to build the correct structure and then wires special beans to this structure. **The Spring Boot GraphQL starter automatically finds these schema files**.
+
+These files need to be saved with the extension “.*graphqls*” and can be present anywhere on the classpath. We can also have as many of these files as desired, so we can split the scheme up into modules as desired.
 
 #### Implement a Queries
 
@@ -123,6 +170,6 @@ dependencies {
 
 #### Implement Subscriptions
 
-#### Error Handling
-
 #### Testing
+
+#### Error Handling
