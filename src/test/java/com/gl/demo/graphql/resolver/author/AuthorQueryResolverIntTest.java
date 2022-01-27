@@ -35,4 +35,15 @@ class AuthorQueryResolverIntTest {
                 graphQLResponse.getRawResponse().getBody(), true);
     }
 
+    @Test
+    public void shouldReturnPostCountForAuthor() throws IOException, JSONException {
+
+        GraphQLResponse graphQLResponse = this.graphQLTestTemplate
+                .postForResource("request/post-count-query.graphqls");
+        assertTrue(graphQLResponse.isOk());
+        assertEquals(FileReaderUtil.read("response/post-count-query.json"),
+                graphQLResponse.getRawResponse().getBody(), true);
+
+    }
+
 }

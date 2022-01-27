@@ -82,4 +82,9 @@ public class PostServiceImpl implements PostService {
         return postCreated.getId();
     }
 
+    @Override
+    public Integer getPostCountByAuthorId(UUID id) {
+        return this.postRepository.findAllByAuthorId(id).size();
+    }
+
 }
