@@ -4,4 +4,5 @@ type Post {
     description: String!
     category: String!
     author: Author!
+    comments(first: Int!): [Comment]!
 }

@@ -4,4 +4,5 @@ type Author {
     email: String!
     posts: [Post]!
     postCount: Int!
+    comments(first: Int!): [Comment]!
 }

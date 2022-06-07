@@ -9,3 +9,6 @@ insert into POSTS(ID, TITLE, DESCRIPTION, CATEGORY, AUTHOR_ID) values('8144f608-
 insert into POSTS(ID, TITLE, DESCRIPTION, CATEGORY, AUTHOR_ID) values('883b8a41-831f-4a1a-86ca-d26adc8f84aa', 'Spring Boot','spring boot and graphQl', 'IT', 'bffc75ba-c8e0-4178-93c9-20eb6cafed75');
 insert into POSTS(ID, TITLE, DESCRIPTION, CATEGORY, AUTHOR_ID) values('6c80180c-51de-4f56-81c4-da0a8fbfa792', 'REACT','REACT course', 'IT', '44b0ed8f-351c-4368-a472-cadd17444947');
 insert into POSTS(ID, TITLE, DESCRIPTION, CATEGORY, AUTHOR_ID) values('7e759e91-a0d4-469b-ad81-50ba3969d211', 'JS','JS course', 'IT', '44b0ed8f-351c-4368-a472-cadd17444947');
+
+
+insert into COMMENTS(ID, TEXT, AUTHOR_ID, POST_ID) values ('880dc5c4-ca56-4eef-90e8-fd6703639ecf', 'awesome comment', '44b0ed8f-351c-4368-a472-cadd17444947', '6c80180c-51de-4f56-81c4-da0a8fbfa792');

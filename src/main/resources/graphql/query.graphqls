@@ -1,4 +1,5 @@
 type Query {
     authors: [Author]!
-    recentPosts(count:Int!, offset: Int!): [Post]
+    recentPosts(count:Int!, offset: Int!): [Post]!
+    comments(count:Int!, offset: Int!): [Comment]!
 }

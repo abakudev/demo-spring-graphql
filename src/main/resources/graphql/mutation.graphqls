@@ -1,4 +1,5 @@
 type Mutation {
     createAuthor(author: AuthorInput): ID!
-    createPost(post: PostInput): ID!
+    createPost(post: PostInput!): ID!
+    createComment(comment: CommentInput!): ID!
 }

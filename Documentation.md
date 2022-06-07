@@ -32,7 +32,7 @@ Let’s have a look at GraphQL’s basic terminology.
 
 ##### Requirements
 
-- Java 1.8 and Above
+- Java 11 and Above
 * Spring Boot Framework > 2.x.x (web)
 
 ##### Depedencies
