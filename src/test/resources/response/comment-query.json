@@ -1,0 +1,21 @@
+{
+  "data": {
+    "comments": [
+      {
+        "id": "880dc5c4-ca56-4eef-90e8-fd6703639ecf",
+        "text": "awesome comment",
+        "author": {
+          "id": "44b0ed8f-351c-4368-a472-cadd17444947",
+          "name": "John",
+          "email": "john@gmail.com"
+        },
+        "post": {
+          "id": "6c80180c-51de-4f56-81c4-da0a8fbfa792",
+          "title": "REACT",
+          "description": "REACT course",
+          "category": "IT"
+        }
+      }
+    ]
+  }
+}

@@ -1,4 +1,5 @@
-package com.abakudev.demo.graphql.resolver.author;
+package com.abakudev.demo.graphql.resolver.comment;
+
 
 import com.abakudev.demo.graphql.TestApplication;
 import com.abakudev.demo.graphql.utils.FileReaderUtil;
@@ -16,31 +17,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = TestApplication.class)
-@Order(1)
-class AuthorQueryResolverIntTest {
+@Order(5)
+class CommentQueryResolverIntTest {
 
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
 
     @Test
-    void shouldAbleToGetAuthorData() throws IOException, JSONException {
+    void shouldAbleToGetCommentData() throws IOException, JSONException {
 
         GraphQLResponse graphQLResponse = this.graphQLTestTemplate
-                .postForResource("request/author-query.graphqls");
+                .postForResource("request/comment-query.graphqls");
+
         assertTrue(graphQLResponse.isOk());
-        assertEquals(FileReaderUtil.read("response/author-query.json"),
+        assertEquals(FileReaderUtil.read("response/comment-query.json"),
                 graphQLResponse.getRawResponse().getBody(), true);
-    }
-
-    @Test
-    void shouldReturnPostCountForAuthor() throws IOException, JSONException {
-
-        GraphQLResponse graphQLResponse = this.graphQLTestTemplate
-                .postForResource("request/post-count-query.graphqls");
-        assertTrue(graphQLResponse.isOk());
-        assertEquals(FileReaderUtil.read("response/post-count-query.json"),
-                graphQLResponse.getRawResponse().getBody(), true);
-
     }
 
 }

@@ -1,7 +1,7 @@
-package com.gl.demo.graphql.resolver.post;
+package com.abakudev.demo.graphql.resolver.post;
 
-import com.gl.demo.graphql.TestApplication;
-import com.gl.demo.graphql.utils.FileReaderUtil;
+import com.abakudev.demo.graphql.TestApplication;
+import com.abakudev.demo.graphql.utils.FileReaderUtil;
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import org.json.JSONException;

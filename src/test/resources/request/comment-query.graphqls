@@ -1,0 +1,17 @@
+query {
+    comments(count: 5, offset:0){
+        id
+        text
+        author{
+            id
+            name
+            email
+        }
+        post {
+            id
+            title
+            description
+            category
+        }
+    }
+}

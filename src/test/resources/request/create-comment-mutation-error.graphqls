@@ -1,0 +1,7 @@
+mutation {
+    createComment(comment:{
+        text:"New comment"
+        postId: "023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+        authorId: "023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+    })
+}

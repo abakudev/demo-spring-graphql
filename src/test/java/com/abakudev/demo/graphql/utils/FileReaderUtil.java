@@ -1,4 +1,4 @@
-package com.gl.demo.graphql.utils;
+package com.abakudev.demo.graphql.utils;
 
 import io.micrometer.core.instrument.util.IOUtils;
 import org.springframework.core.io.ClassPathResource;

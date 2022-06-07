@@ -1,4 +1,4 @@
-package com.gl.demo.graphql;
+package com.abakudev.demo.graphql;
 
 import org.junit.jupiter.api.ClassOrderer;
 import org.junit.jupiter.api.Nested;
