@@ -2,7 +2,7 @@
 
 A proof of concept to create a API GraphQL in Spring Boot.
 
-#### Requirement 
+#### Requirements
 
 * [Java 11](https://www.oracle.com/java/technologies/downloads/) or later
 * [Maven 3.2+](https://maven.apache.org/download.cgi)
