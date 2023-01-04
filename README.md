@@ -27,4 +27,4 @@ mvn clean compile test jacoco:report sonar:sonar
 
 #### Documentation
 
-Document on How to build a GraphQL API in Spring Boot. [Documentation.md](https://gitlab-art.globallogic.com.ar/abel.acuna/demo-spring-graphql/-/blob/main/Documentation.md)
+Document on How to build a GraphQL API in Spring Boot. [Documentation.md](https://github.com/abakudev/demo-spring-graphql/blob/main/Documentation.md)
